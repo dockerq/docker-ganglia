@@ -1,4 +1,4 @@
-FORM centos:7
+FROM centos:7
 MAINTAINER wlu wlu@linkernetworks.com
 
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
