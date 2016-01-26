@@ -22,4 +22,6 @@ RUN yum install -y python-setuptools && \
     easy_install supervisor && \
     yum clean all
 
+RUN yum clean all && yum swap fakesystemd systemd
+
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
