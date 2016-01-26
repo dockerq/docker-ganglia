@@ -11,9 +11,9 @@ RUN yum install -y rrdtool rrdtool-devel ganglia-web ganglia-gmetad \
     libconfuse-devel expat-devel pcre-devel
 
 # install ganglia client
-RUN yum install -y ganglia-gmond
+#RUN yum install -y ganglia-gmond
 
-RUN mkdir -p /var/lib/ganglia/rrds && \
+RUN mkdir -p /var/lib/ganglia && \
     chown nobody:nobody /var/lib/ganglia && \
     chmod 777 /var/lib/ganglia
 
@@ -22,6 +22,7 @@ RUN yum install -y python-setuptools && \
     easy_install supervisor && \
     yum clean all
 
-RUN yum remove -y iptables && yum install -y vim  
+RUN yum install -y vim && \
+    ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
