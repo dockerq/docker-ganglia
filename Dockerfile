@@ -16,3 +16,10 @@ RUN yum install -y ganglia-gmond
 RUN mkdir -p /var/lib/ganglia/rrds && \
     chown nobody:nobody /var/lib/ganglia/rrds && \
     chmod a+w /var/lib/ganglia/rrds
+
+ADD supervisord.conf /etc/supervisord.conf
+RUN yum install -y python-setuptools && \
+    easy_install supervisor && \
+    yum clean all
+
+CMD ["supervisor", "-n", "-c", "/etc/supervisord.conf"]
