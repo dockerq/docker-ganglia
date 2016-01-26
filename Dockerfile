@@ -22,4 +22,4 @@ RUN yum install -y python-setuptools && \
     easy_install supervisor && \
     yum clean all
 
-CMD ["supervisor", "-n", "-c", "/etc/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
