@@ -1,8 +1,9 @@
 FROM centos:7
 MAINTAINER wlu wlu@linkernetworks.com
 
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    yum install -y php-common php-cli php-gb php
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+RUN yum install -y php-common php-cli php-gb php
 
 # install ganglia server
 RUN yum install -y rrdtool rrdtool-devel ganglia-web ganglia-gmetad \
