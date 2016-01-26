@@ -1,7 +1,7 @@
-FROM centos:7.2.1511
+FROM centos:6
 MAINTAINER wlu wlu@linkernetworks.com
 
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 
 RUN yum install -y php-common php-cli php-gb php
 
@@ -22,6 +22,6 @@ RUN yum install -y python-setuptools && \
     easy_install supervisor && \
     yum clean all
 
-RUN yum clean all && yum swap fakesystemd systemd
+#RUN yum clean all && yum swap fakesystemd systemd
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
