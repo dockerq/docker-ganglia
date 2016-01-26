@@ -14,14 +14,14 @@ RUN yum install -y rrdtool rrdtool-devel ganglia-web ganglia-gmetad \
 RUN yum install -y ganglia-gmond
 
 RUN mkdir -p /var/lib/ganglia/rrds && \
-    chown nobody:nobody /var/lib/ganglia/rrds && \
-    chmod a+w /var/lib/ganglia/rrds
+    chown nobody:nobody /var/lib/ganglia && \
+    chmod 777 /var/lib/ganglia
 
 ADD supervisord.conf /etc/supervisord.conf
 RUN yum install -y python-setuptools && \
     easy_install supervisor && \
     yum clean all
 
-#RUN yum clean all && yum swap fakesystemd systemd
+RUN yum remove -y iptables && yum install -y vim  
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
