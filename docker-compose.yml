@@ -5,8 +5,6 @@ ganglia:
     net: host
     pid: host
     container_name: ganglia
-    ports:
-        - 9090:80
     volumes:
         - /sys:/sys
         - /dev:/dev
