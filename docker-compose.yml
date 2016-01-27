@@ -1,5 +1,5 @@
 ganglia:
-    image: ganglia
+    image: adolphlwq/ganglia
     privileged: true
     ipc: host
     net: host
