@@ -8,3 +8,4 @@ ganglia:
     volumes:
         - /sys:/sys
         - /dev:/dev
+        - ./ganglia:/etc/ganglia
