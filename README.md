@@ -1,22 +1,26 @@
 # Ganglia docker image
 In the master branch,I use centos:6 as my base image.
 
-## requirements
+## Demos
+![](http://7xl2jw.com1.z0.glb.clouddn.com/ganglia_demo.gif)
+
+## Requisites
 - docker
 - docker-compose
+- Linux
 
-## usage
+## Usage
 ### clone project and build docker image
 ```
-git clone https://github.com/DHOPL/ganglia.git
-cd ganglia
-docker build -t adolphlwq/ganglia . (you can use someone else image name)
+git clone https://github.com/dockerq/docker-ganglia.git
+cd docker-ganglia
+docker build -t dockerq/ganglia . (you can use someone else image name)
 ```
 ### change docker-compose.yml file
 cat docker-compose.yml
 ```
 ganglia:
-    image: the image name you build
+    image: dockerq/ganglia(the image name you build)
     privileged: true
     ipc: host
     net: host
@@ -30,7 +34,7 @@ ganglia:
 ```
 
 ### config ganglia
-configure files are in dir `conf`
+configure files are in directory `conf`
 
 ### run
 ```
@@ -59,8 +63,5 @@ geek@prod:ganglia$ sudo mkdir -p /dev/mqueue
 
 and run `docker-compose up -d`,the container runs correctly
 
-demos:
-![](http://7xl2jw.com1.z0.glb.clouddn.com/ganglia_demo.gif)
-
-## NOTE
-note the firewall regular in your machine!
+## Troubleshooting
+- check if the firewall is enable on your machine!
