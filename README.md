@@ -1,13 +1,13 @@
-# Ganglia docker image
-In the master branch,I use centos:6 as my base image.
+# Ganglia docker
 
 ## Demos
-![](http://7xl2jw.com1.z0.glb.clouddn.com/ganglia_demo.gif)
+![](asserts/ganglia_demo.gif)
 
 ## Requisites
 - docker
 - docker-compose
 - Linux
+- check if the firewall is disable on your machine
 
 ## Usage
 ### clone project and build docker image
@@ -42,6 +42,7 @@ cd ganglia
 docker-compose up -d
 ```
 
+## Troubleshooting
 I run `docker-compose up -d` in my pc,(ubuntu 14.04 docker 1.9.1) and I run into the following error:
 
 ```
@@ -62,6 +63,3 @@ geek@prod:ganglia$ sudo mkdir -p /dev/mqueue
 ```
 
 and run `docker-compose up -d`,the container runs correctly
-
-## Troubleshooting
-- check if the firewall is enable on your machine!
